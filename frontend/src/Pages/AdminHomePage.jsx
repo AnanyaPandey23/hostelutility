@@ -55,7 +55,7 @@ const AdminHomePage = () => {
     try {
 
       const responseUpd = await axios.post(
-        "https://hostelutility.vercel.app/user/updateissue",
+        "https://hostelutilitybackend.vercel.app/user/updateissue",
         JSON.stringify({
           token: token,
           issueResolved: checked ? "Yes" : "No",
@@ -68,7 +68,7 @@ const AdminHomePage = () => {
       toast.success("Issue Updated successfully");
 
       const responseDep = await axios.post(
-        "https://hostelutility.vercel.app/user/getissue",
+        "https://hostelutilitybackend.vercel.app/user/getissue",
         JSON.stringify({ token: token }),
         {
           headers: { "Content-Type": "application/json" },
@@ -91,7 +91,7 @@ const AdminHomePage = () => {
       if (checked) {
         // console.log("mail:",mail);
         const response = await axios.post(
-          "https://hostelutility.vercel.app/user/sendemail",
+          "https://hostelutilitybackend.vercel.app/user/sendemail",
           JSON.stringify({
             to: [mail,"vpsrathore2002@gmail.com"],
             subject: "Complaint Registered",

@@ -65,7 +65,7 @@ const Dashboard = () => {
       await user_insertIssue({ updatedUser });
       const mail = state.studentInfo.student_email;
       const response = await axios.post(
-        "https://hostelutility.vercel.app/user/sendemail",
+        "https://hostelutilitybackend.vercel.app/user/sendemail",
         JSON.stringify({
           to: mail,
           subject: `${updatedUser.token} - Complaint Registered`,
