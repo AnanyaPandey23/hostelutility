@@ -34,12 +34,12 @@ const issueSchema = new Schema({
         type: String,
         required:true
     },
-    expireAt: {
-        type: Date,
-        default: Date.now
-    }
-});
+//     expireAt: {
+//         type: Date,
+//         default: Date.now
+//     }
+ });
 
-issueSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 300 });
+// issueSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 300 });
 const IssueModel=mongoose.model("issues",issueSchema);
 module.exports=IssueModel
