@@ -9,6 +9,7 @@ app.use(bodyparser.json());
 app.use(
   cors({
     origin: "https://hostelutility-frontend.vercel.app",
+    // origin: "http://localhost:9000",
     credentials: true,
   })
 );
