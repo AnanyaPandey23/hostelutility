@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "https://hostelutilityfrontend.vercel.app",
+    origin: "https://hostelutility-frontend.vercel.app",
     credentials: true,
   })
 );
