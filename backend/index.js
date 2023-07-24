@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://hostelutilityfrontend.vercel.app",
     credentials: true,
   })
 );
