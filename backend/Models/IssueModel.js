@@ -40,6 +40,6 @@ const issueSchema = new Schema({
     }
 });
 
-issueSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 60 });
+issueSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 300 });
 const IssueModel=mongoose.model("issues",issueSchema);
 module.exports=IssueModel
