@@ -77,6 +77,7 @@ const LoginPage = () => {
           <TextField
             sx={{ width: 300, paddingY: 1, color: "black 900" }}
             placeholder="Enter the Password"
+            type="password"
             name="password"
             value={user.password}
             onChange={changehandler}
