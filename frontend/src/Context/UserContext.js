@@ -31,14 +31,14 @@ export const UserProvider = ({ children }) => {
 
   const UserRegister = (props) => {
     axios
-      .post("http://localhost:9000/user/register", props.user)
+      .post("https://hostelutility.vercel.app/user/register", props.user)
       .then((res) => {
         dispatch({ type: USER_REG, payload: res.data });
       });
   };
 
   const UserLogin = (props) => {
-    axios.post("http://localhost:9000/user/login", props.user).then((res) => {
+    axios.post("https://hostelutility.vercel.app/user/login", props.user).then((res) => {
       localStorage.setItem("token", res.data.token);
       dispatch({ type: USER_LOGIN, payload: res.data });
     });
@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
   const get_userList = async () => {
     await axios
       .post(
-        "http://localhost:9000/user/getuser",
+        "https://hostelutility.vercel.app/user/getuser",
         {},
         {
           headers: { authorization: `bearer ${localStorage.getItem("token")}` },
@@ -61,7 +61,7 @@ export const UserProvider = ({ children }) => {
 
   const get_userIssue = async () => {
     await axios
-      .post("http://localhost:9000/user/findissues", {
+      .post("https://hostelutility.vercel.app/user/findissues", {
         rollNo: state.studentInfo.rollNo,
       })
       .then((res) => {
@@ -72,7 +72,7 @@ export const UserProvider = ({ children }) => {
 
   const user_insertIssue = (props) => {
     axios
-      .post("http://localhost:9000/user/issues", props.updatedUser)
+      .post("https://hostelutility.vercel.app/user/issues", props.updatedUser)
       .then((res) => {
         dispatch({ type: USER_INSERT_ISSUE, payload: res.data });
       });
@@ -80,7 +80,7 @@ export const UserProvider = ({ children }) => {
 
   const AdminLogin = (props) => {
     axios
-      .post("http://localhost:9000/user/adminlogin", props.admin)
+      .post("https://hostelutility.vercel.app/user/adminlogin", props.admin)
       .then((res) => {
         dispatch({ type: ADMIN_LOGIN, payload: res.data });
       });
@@ -88,7 +88,7 @@ export const UserProvider = ({ children }) => {
 
   const get_adminIssue = async () => {
     await axios
-      .post("http://localhost:9000/user/getadminissues", {}
+      .post("https://hostelutility.vercel.app/user/getadminissues", {}
       )
       .then((res) => {
         dispatch({ type: GET_ADMIN_ISSUE, payload: res.data });
