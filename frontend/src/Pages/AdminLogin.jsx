@@ -93,8 +93,8 @@ const AdminLogin = () => {
             sx={{ width: 300, paddingY: 1 }}
             placeholder="Enter the Password"
             type={showPassword ? "text" : "password"}
-            name="password"
-            value={user.password}
+            name="user_password"
+            value={admin.user_password}
             onChange={changehandler}
             InputProps={{
               endAdornment: (
