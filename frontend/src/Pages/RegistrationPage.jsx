@@ -1,4 +1,10 @@
-import { Box, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { UserAuth } from "../Context/UserContext";
 import { toast } from "react-toastify";
@@ -19,16 +25,15 @@ const RegistrationPage = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const changehandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const RegisterHandle = (e) => {
     UserRegister({ user });
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   useEffect(() => {
@@ -102,20 +107,35 @@ const RegistrationPage = () => {
             value={user.rollNo}
             onChange={changehandler}
           />
-          <TextField
+          {/* <TextField
             sx={{ width: 300, paddingY: 1 }}
             placeholder="Enter the Password"
             type="password"
             name="password"
             value={user.password}
             onChange={changehandler}
+          /> */}
+          <TextField
+            sx={{ width: 300, paddingY: 1 }}
+            placeholder="Enter the Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={user.password}
+            onChange={changehandler}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={togglePasswordVisibility}
+                    edge="end"
+                    aria-label="toggle password visibility"
+                  >
+                    {showPassword ? <HiUserGroup /> : <HiUserGroup />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
-          <button
-            style={{ marginLeft: "8px" }}
-            onClick={togglePasswordVisibility}
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
           <Button
             variant="outline"
             style={{
