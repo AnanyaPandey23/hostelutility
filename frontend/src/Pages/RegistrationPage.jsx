@@ -10,6 +10,7 @@ import { UserAuth } from "../Context/UserContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { HiUserGroup } from "react-icons/hi";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import img1 from "../assets/Image2.jpeg";
 import logo from "../assets/bitlogo.png";
 import "./LoginPage.css";
@@ -130,7 +131,7 @@ const RegistrationPage = () => {
                     edge="end"
                     aria-label="toggle password visibility"
                   >
-                    {showPassword ? <HiUserGroup /> : <HiUserGroup />}
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
               ),
