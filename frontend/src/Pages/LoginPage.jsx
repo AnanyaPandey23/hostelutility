@@ -1,9 +1,16 @@
-import { Box, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { HiUserGroup } from "react-icons/hi";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserAuth } from "../Context/UserContext";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import img1 from "../assets/Image2.jpeg";
 import logo from "../assets/bitlogo.png";
 import "./LoginPage.css";
