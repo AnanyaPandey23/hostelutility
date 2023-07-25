@@ -82,9 +82,9 @@ const AdminHomePage = () => {
       const timeFrom = responseDep?.data?.preferredTimeFrom;
       const timeTo = responseDep?.data?.preferredTimeTo
       if (depart === "Mess") {
-        mail="anu23.coding@gmail.com";
+        mail="hostel2@bitmesra.ac.in";
       } else if (depart === "Water") {
-        mail="ananyapandey2322001@gmail.com";
+        mail="priyanksaxena@bitmesra.ac.in";
       } else {
         mail="ananyapandey2322001@gmail.com";
       }
@@ -93,7 +93,7 @@ const AdminHomePage = () => {
         const response = await axios.post(
           "https://hostelutility-backend.vercel.app/user/sendemail",
           JSON.stringify({
-            to: [mail,"vpsrathore2002@gmail.com"],
+            to: [mail,"priyanksaxena@bitmesra.ac.in","ar.hostels@bitmesra.ac.in","hostel2@bitmesra.ac.in"],
             subject: "Complaint Registered",
             text: " no text in text",
             html: `<div style="border : 1px solid white;padding:"10px">
