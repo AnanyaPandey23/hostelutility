@@ -1,10 +1,17 @@
 import React from "react";
-import { Box, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { HiUserGroup } from "react-icons/hi";
 import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserAuth } from "../Context/UserContext";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import img1 from "../assets/Image2.jpeg";
 import img1 from "../assets/adminimage.png";
 import logo from "../assets/bitlogo.png";
@@ -12,6 +19,10 @@ import "./LoginPage.css";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const { state, AdminLogin } = useContext(UserAuth);
   const [admin, setAdmin] = useState({ user_name: "", user_password: "" });
   const changehandler = (e) => {
@@ -71,12 +82,33 @@ const AdminLogin = () => {
             value={admin.user_name}
             onChange={changehandler}
           />
-          <TextField
+          {/* <TextField
             sx={{ width: 300, paddingY: 1, color: "black 900" }}
             placeholder="Enter Password"
             name="user_password"
             value={admin.user_password}
             onChange={changehandler}
+          /> */}
+          <TextField
+            sx={{ width: 300, paddingY: 1 }}
+            placeholder="Enter the Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={user.password}
+            onChange={changehandler}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={togglePasswordVisibility}
+                    edge="end"
+                    aria-label="toggle password visibility"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <Button
             variant="outline"
