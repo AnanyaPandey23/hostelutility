@@ -93,7 +93,7 @@ const AdminHomePage = () => {
         const response = await axios.post(
           "https://hostelutility-backend.vercel.app/user/sendemail",
           JSON.stringify({
-            to: [mail,"priyanksaxena@bitmesra.ac.in","hostel2@bitmesra.ac.in"],
+            to: [mail,"priyanksaxena@bitmesra.ac.in","hostel2@bitmesra.ac.in","anu23.coding@gmail.com"],
             subject: "Complaint Registered",
             text: " no text in text",
             html: `<div style="border : 1px solid white;padding:"10px">
