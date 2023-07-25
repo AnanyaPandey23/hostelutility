@@ -17,14 +17,19 @@ const RegistrationPage = () => {
     rollNo: "",
     password: "",
   });
-  
+
+  const [showPassword, setShowPassword] = useState(false);
+
   const changehandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const RegisterHandle = (e) => {
     UserRegister({ user });
   };
-  
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   useEffect(() => {
     if (state.isReg) {
@@ -70,7 +75,7 @@ const RegistrationPage = () => {
               width: "90%", // Set the width to occupy 80% of the screen
               height: "70%", // Set the height to occupy 70% of the screen height
               marginTop: "240px",
-              paddingTop :"10px",
+              paddingTop: "10px",
             },
           }}
         >
@@ -105,6 +110,12 @@ const RegistrationPage = () => {
             value={user.password}
             onChange={changehandler}
           />
+          <button
+            style={{ marginLeft: "8px" }}
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
           <Button
             variant="outline"
             style={{
