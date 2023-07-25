@@ -1,8 +1,4 @@
-import {
-  Box,
-  Button,
-  TextField,
-} from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { HiUserGroup } from "react-icons/hi";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +12,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { state, UserLogin } = useContext(UserAuth);
   const [user, setUser] = useState({ rollNo: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const changehandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -36,7 +36,6 @@ const LoginPage = () => {
 
   return (
     <div>
-     
       <Box
         justifyContent="center"
         alignItems="center"
@@ -74,13 +73,34 @@ const LoginPage = () => {
             value={user.rollNo}
             onChange={changehandler}
           />
-          <TextField
+          {/* <TextField
             sx={{ width: 300, paddingY: 1, color: "black 900" }}
             placeholder="Enter the Password"
             type="password"
             name="password"
             value={user.password}
             onChange={changehandler}
+          /> */}
+          <TextField
+            sx={{ width: 300, paddingY: 1 }}
+            placeholder="Enter the Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={user.password}
+            onChange={changehandler}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={togglePasswordVisibility}
+                    edge="end"
+                    aria-label="toggle password visibility"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <Button
             variant="outline"
